@@ -4,7 +4,7 @@ import time
 import json
 
 from urllib.parse import parse_qsl
-import pytumblr.P_oauth2 as oauth
+from . import P_oauth2 as oauth
 from httplib2 import RedirectLimit
 
 class TumblrRequest(object):
