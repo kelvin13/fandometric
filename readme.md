@@ -28,6 +28,8 @@ If you have never used the [tumblr API](https://www.tumblr.com/docs/en/api/v2#au
 
 Simply go to the (https://www.tumblr.com/oauth/apps)[registration page] enter the required info:
 
+| field | value |
+| --- | --- |
 | Application Name | can be anything |
 | Application Description | can be anything |
 | Administrative contact email | your email |
