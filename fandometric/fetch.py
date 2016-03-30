@@ -6,7 +6,7 @@ def yield_users(func, field, * args):
     offset = 0
     while True:
         try:
-            blogs = func( * args, limit=20, offset=offset)
+            blogs = func( * args, limit=20, offset=count)
         except ServerNotFoundError:
             print('Server not found, trying again in 3 seconds')
             time.sleep(3)

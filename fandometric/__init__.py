@@ -4,7 +4,7 @@ from . import fetch
 from . import indie
 from . import track
 from .indie import max_file_index
-from .tumblr_keys import client
+from .keys import client
 
 def update(url, directory='records'):
     followers = [U['name'] + '|' + str(U['updated']) for U in fetch.yield_users(client.followers, 'users', url)]
@@ -19,7 +19,7 @@ def compare(a=None, b=None, directory='records'):
         b = a
     b, a = sorted((abs(a), abs(b)))
     n = max_file_index(directory)
-    print(track.render_table(track.check(directory, n - a, n - b)))
+    print(track.render_table( * track.check(directory, n - a, n - b) ))
 
 def changes(url, * args, ** kwargs ):
     update(url, ** kwargs )
