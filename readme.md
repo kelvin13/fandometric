@@ -34,11 +34,11 @@ Simply go to the (https://www.tumblr.com/oauth/apps)[registration page] enter th
 
 Register the application. Then on the apps page, go through **explore api** and click through the authorization page. (Yes, this will allow the app to do anything to your account, including post and follow, but this is now your app; you registered it yourself.)
 
-![Screenshot](tutorial_1.png "Getting your OAuth keys")
+![Screenshot](screenshots/tutorial_1.png "Getting your OAuth keys")
 
 The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button.) Paste them into your `tumblr_keys.txt` file from earlier, four keys on four separate lines, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.**
 
-![Screenshot](tutorial_2.png "Tumblr API keys display")
+![Screenshot](screenshots/tutorial_2.png "Tumblr API keys display")
 
 Fandometric is now linked to your tumblr account and ready to use.
 
@@ -58,7 +58,7 @@ To compare with the last saved snapshot (comparing a follower list with itself i
 >>> fandometric.changes(<blogname>, 0, -1)
 ```
 
-![Screenshot](screenshot_3.png "Fandometric usage")
+![Screenshot](screenshots/screenshot_3.png "Fandometric usage")
 
 Comparisons will fail when you run Fandometric for the first time and ask it to perform a comparison with a previous snapshot, because it will have nothing to compare your follower/following list to. Snapshots are saved in a directory called `records` and may be freely deleted to clean out your records. Fandometric refers to these files by their numeric indexes.
 
@@ -80,7 +80,7 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 * **b** : the reverse index of the second snapshot to compare. Sign is irrelevant; `-1` and `1` are equivalent. Defaults to the value of `a` (self comparison).
 * **directory** : the directory Fandometric will search for `a` and `b` in. Must be free of all non-snapshot files.
 
-![Screenshot](screenshot_4.png "Comparison output")
+![Screenshot](screenshots/screenshot_4.png "Comparison output")
 
 ## Comparison output
 | lost followers | |
@@ -97,8 +97,8 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
 
-| stats |
-| --- |
+| stats ||
+| --- | --- |
 | `ratio=u/v (u:v)` | The ratio of followers to following at the time of the second snapshot |
 | `p% inactive following (n blogs)` | The proportion and number of inactive blogs that you follow (inactivity defined as greater than one week) |
 | `p% inactive followers (n blogs)` | The proportion and number of inactive blogs that follow you (inactivity defined as greater than one week)
