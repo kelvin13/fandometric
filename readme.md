@@ -83,7 +83,7 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 ![Screenshot](screenshot_4.png "Comparison output")
 
 ## Comparison output
-| lost followers |
+| lost followers | |
 | --- | --- |
 | `exists` | the blog currently exists on tumblr |
 | `deleted` | the blog no longer exists on tumblr |
@@ -91,8 +91,8 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
 
-| gained followers |
-| --- |
+| gained followers | |
+| --- | --- |
 | `new` | this blog is a new follower (always `new`)
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
