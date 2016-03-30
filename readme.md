@@ -57,7 +57,9 @@ To compare with the last saved snapshot (comparing a follower list with itself i
 ```
 >>> fandometric.changes(<blogname>, 0, -1)
 ```
+
 ![Screenshot](screenshot_3.png "Fandometric usage")
+
 Comparisons will fail when you run Fandometric for the first time and ask it to perform a comparison with a previous snapshot, because it will have nothing to compare your follower/following list to. Snapshots are saved in a directory called `records` and may be freely deleted to clean out your records. Fandometric refers to these files by their numeric indexes.
 
 ## Advanced usage
@@ -82,18 +84,16 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 
 ## Comparison output
 | lost followers |
-| --- |
-| `exists` | the blog currently exists on tumblr
+| --- | --- |
+| `exists` | the blog currently exists on tumblr |
 | `deleted` | the blog no longer exists on tumblr |
 | `unknown` | Fandometric was unable to verify the existence of this blog |
-
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
 
 | gained followers |
 | --- |
 | `new` | this blog is a new follower (always `new`)
-
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
 
