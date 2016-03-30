@@ -1,5 +1,4 @@
-Fandometric
----
+# Fandometric
 
 A command line utility for tracking your tumblr following.
 
@@ -12,7 +11,7 @@ Run with the python 3.5 console:
 >>> fandometric.changes(url, 0, -1)
 ```
 
-# First time use
+## First time use
 
 Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. To do this, create a file named `tumblr_keys.txt` in the top level `fandometric` directory (the same directory that contains this `readme.md` file. The file should contain four, and only four OAuth keystrings, each on a separate line.
 
@@ -23,10 +22,10 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## Getting your OAuth keys
+### Getting your OAuth keys
 If you have never used the [tumblr API](https://www.tumblr.com/docs/en/api/v2#auth), you will have to [register this application](https://www.tumblr.com/oauth/apps) with tumblr. That sounds more difficult than it is.
 
-Simply go to the (https://www.tumblr.com/oauth/apps)[registration page] enter the required info:
+Simply go to the [registration page](https://www.tumblr.com/oauth/apps) enter the required info:
 
 | field | value |
 | --- | --- |
