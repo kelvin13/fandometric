@@ -23,9 +23,9 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ### Getting your OAuth keys
-If you have never used the [tumblr API](https://www.tumblr.com/docs/en/api/v2#auth), you will have to [register this application](https://www.tumblr.com/oauth/apps) with tumblr. That sounds more difficult than it is.
+If you have never used the [tumblr API](https://www.tumblr.com/docs/en/api/v2#auth), you will have to [register this application](https://www.tumblr.com/oauth/apps) with tumblr. If you don’t know how, don’t worry, we’ll walk you through it.
 
-Simply go to the [registration page](https://www.tumblr.com/oauth/apps) enter the required info:
+First go to the [registration page](https://www.tumblr.com/oauth/apps), and enter the required info:
 
 | field | value |
 | --- | --- |
@@ -34,11 +34,13 @@ Simply go to the [registration page](https://www.tumblr.com/oauth/apps) enter th
 | Administrative contact email | your email |
 | Default callback URL | '/' (forward slash, without quotes) |
 
-Register the application. Then on the apps page, go through **explore api** and click through the authorization page. (Yes, this will allow the app to do anything to your account, including post and follow, but this is now your app; you registered it yourself.)
+You do not need to fill in any App Store links or application icons. Tumblr only asks for this information so that it knows that you have a copy of the Fandometric app, it won’t affect its operation once it’s registered.
+
+Click through the CAPTCHA (“Are you a robot?”) and register the application. Then on the apps page, go through **explore api** and click through the authorization page. (Yes, this will allow the app to do anything to your account, including post and follow, but this is now your app; you registered it yourself.)
 
 ![Screenshot](screenshots/tutorial_1.png "Getting your OAuth keys")
 
-The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button.) Paste them into your `tumblr_keys.txt` file from earlier, four keys on four separate lines, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.**
+The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.**
 
 ![Screenshot](screenshots/tutorial_2.png "Tumblr API keys display")
 
