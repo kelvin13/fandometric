@@ -14,4 +14,15 @@ def write_record(time, urls1, urls2, directory):
     with open(directory + '/' + str(max_file_index(directory) + 1) + '.txt', 'w') as fi:
         fi.write(S)
 
+def get_record(directory, N):
+    with open(directory + '/' + str(N) + '.txt', 'r') as F:
+        followers, following = F.read().split('~~~')
+        T, * followers = followers.split()
+        followers = [(url, float(t)) for url, t in (blog.split('|') for blog in followers)]
+        following = [(url, float(t)) for url, t in (blog.split('|') for blog in following.split())]
+        return float(T), followers, following
+
+def to_url_set(blogs):
+    return set(U[0] for U in blogs)
+
 #write_record(-1, ['taylorswift', 'abiander'], ['taylorswift'])

@@ -1,5 +1,8 @@
 import time
 from httplib2 import ServerNotFoundError
+from ssl import CertificateError
+
+from .keys import client
 
 def yield_users(func, field, * args):
     count = 0
@@ -31,3 +34,16 @@ def yield_users(func, field, * args):
         else:
             print ('end')
             break
+
+def exists(url):
+    try:
+        if "meta" in client.blog_info(url) and "status" in client.blog_info(url)["meta"]:
+            if client.blog_info(url)["meta"]["status"] == 404:
+                return 0
+            else:
+                print (url + " [other error?]")
+                return 0
+        else:
+            return 1
+    except (CertificateError, ServerNotFoundError):
+        return 2
