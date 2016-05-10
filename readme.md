@@ -13,7 +13,7 @@ Run with the python 3.5 console:
 
 ## First time use
 
-Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. To do this, create a file named `tumblr_keys.txt` in the top level `fandometric` directory (the same directory that contains this `readme.md` file. The file should contain four, and only four OAuth keystrings, each on a separate line.
+Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. To do this, clone a copy of the Fandometric source and create a file named `tumblr_keys.txt` in the top level `fandometric` directory (the same directory that contains this `readme.md` file. *You do not need to fork this repository unless you intend to modify Fandometric and want to post your changes.* The file should contain four, and only four OAuth keystrings, each on a separate line.
 
 ```
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -40,7 +40,7 @@ Click through the CAPTCHA (“Are you a robot?”) and register the application.
 
 ![Screenshot](screenshots/tutorial_1.png "Getting your OAuth keys")
 
-The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.**
+The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
 
 ![Screenshot](screenshots/tutorial_2.png "Tumblr API keys display")
 
@@ -86,7 +86,7 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 
 ![Screenshot](screenshots/screenshot_4.png "Comparison output")
 
-## Comparison output
+### Comparison output
 | lost followers | |
 | --- | --- |
 | `exists` | the blog currently exists on tumblr |
@@ -106,3 +106,9 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 | `ratio=u/v (u:v)` | The ratio of followers to following at the time of the second snapshot |
 | `p% inactive following (n blogs)` | The proportion and number of inactive blogs that you follow (inactivity defined as greater than one week) |
 | `p% inactive followers (n blogs)` | The proportion and number of inactive blogs that follow you (inactivity defined as greater than one week)
+
+`fandometric.following()`
+
+Displays a list of the blogs you are following, sorted by the time they were last active. 
+
+![Screenshot](screenshots/screenshot_5.png "Activity list")
