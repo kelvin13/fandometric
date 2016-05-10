@@ -40,9 +40,13 @@ Click through the CAPTCHA (“Are you a robot?”) and register the application.
 
 ![Screenshot](screenshots/tutorial_1.png "Getting your OAuth keys")
 
-The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
+The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) 
 
 ![Screenshot](screenshots/tutorial_2.png "Tumblr API keys display")
+
+Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
+
+![Screenshot](screenshots/tutorial_3.png "Creating the tumblr_keys.txt file")
 
 Fandometric is now linked to your tumblr account and ready to use.
 
