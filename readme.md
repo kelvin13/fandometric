@@ -47,6 +47,7 @@ The `User: Info` page will have your four keys stored in various formats. Which 
 Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
 
 ![Screenshot](screenshots/tutorial_3.png "Creating the tumblr_keys.txt file")
+(These are fake keys, do not ever post screenshots of your actual keys.)
 
 Fandometric is now linked to your tumblr account and ready to use.
 
