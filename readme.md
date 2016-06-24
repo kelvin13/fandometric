@@ -11,45 +11,31 @@ Run with the python 3.5 console:
 >>> fandometric.changes(url, 0, -1)
 ```
 
+## Downloading Fandometric
+
+If you know how to use git, you can skip this section. 
+
+Otherwise you can download a copy of Fandometric by going to the Download ZIP button on the side of this page. *You do not need to fork this repository unless you intend to modify Fandometric and want to post your changes.*
+
+![Screenshot](screenshots/tutorial_1.png "Downloading Fandometric")
+
+Extract the ZIP file to anywhere on your computer, as long as you know how to `cd` into the directory using a terminal.
+
 ## First time use
 
-Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. To do this, clone a copy of the Fandometric source and create a file named `tumblr_keys.txt` in the top level `fandometric` directory (the same directory that contains this `readme.md` file. *You do not need to fork this repository unless you intend to modify Fandometric and want to post your changes.* The file should contain four, and only four OAuth keystrings, each on a separate line.
+Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. Fandometric can get the required keys for you as long as you give it permission.
 
-```
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
+You will be prompted for a fandometric passkey. Official fandometric passkeys are currently only available to certain members of the Taylor Swift fandom. *If you do not have one*, you can generate your own unofficial fandometric passkey by [registering](https://www.tumblr.com/oauth/apps) your copy of fandometric separately with tumblr. Doing so will give you your own consumer key and consumer secret which you can plug directly into the `oauth.Consumer()` constructor in `authorize.py` (you will have to modify the source code).
 
-### Getting your OAuth keys
-If you have never used the [tumblr API](https://www.tumblr.com/docs/en/api/v2#auth), you will have to [register this application](https://www.tumblr.com/oauth/apps) with tumblr. If you don’t know how, don’t worry, we’ll walk you through it.
+You will then be sent to a tumblr authorization page, and then a localhost page which will probably display in your browser as a page load error.
 
-First go to the [registration page](https://www.tumblr.com/oauth/apps), and enter the required info:
+![Screenshot](screenshots/tutorial_2.png "Authorizing Fandometric")
 
-| field | value |
-| --- | --- |
-| Application Name | can be anything |
-| Application Description | can be anything |
-| Administrative contact email | your email |
-| Default callback URL | 'https://' (without quotes) |
+![Screenshot](screenshots/tutorial_3.png "Retrieving the OAuth verifier")
 
-You do not need to fill in any App Store links or application icons. Tumblr only asks for this information so that it knows that you have a copy of the Fandometric app, it won’t affect its operation once it’s registered.
+Paste the `oauth_verifier` (highlighted portion of the url) into the Fandometric prompt. If successful, Fandometric is now linked to your tumblr account and ready to use.
 
-Click through the CAPTCHA (“Are you a robot?”) and register the application. Then on the apps page, go through **explore api** and click through the authorization page. (Yes, this will allow the app to do anything to your account, including post and follow, but this is now your app; you registered it yourself.)
-
-![Screenshot](screenshots/tutorial_1.png "Getting your OAuth keys")
-
-The `User: Info` page will have your four keys stored in various formats. Which ones you choose are not important, as long as you take all four at a time, in the order that they appear. (The keys in the screenshot are from the `show keys` button, but the same information is repeated in many places on that page.) 
-
-![Screenshot](screenshots/tutorial_2.png "Tumblr API keys display")
-
-Paste the four keys into your `tumblr_keys.txt` file from earlier, four keys on *four separate lines*, in the order they appear on the website. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
-
-![Screenshot](screenshots/tutorial_3.png "Creating the tumblr_keys.txt file")
-(These are fake keys, do not ever post screenshots of your actual keys.)
-
-Fandometric is now linked to your tumblr account and ready to use.
+Fandometric will have saved the OAuth keys in a file called `tumblr_keys.txt` so you won’t have to go through this process each time you use it. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
 
 ## Usage
 Fandometric is a python console application. It can also be loaded as a library. In the top `fandometric` folder, run the following terminal commands to start python and load Fandometric
