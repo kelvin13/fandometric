@@ -32,7 +32,7 @@ First go to the [registration page](https://www.tumblr.com/oauth/apps), and ente
 | Application Name | can be anything |
 | Application Description | can be anything |
 | Administrative contact email | your email |
-| Default callback URL | '/' (forward slash, without quotes) |
+| Default callback URL | 'https://' (without quotes) |
 
 You do not need to fill in any App Store links or application icons. Tumblr only asks for this information so that it knows that you have a copy of the Fandometric app, it won’t affect its operation once it’s registered.
 
