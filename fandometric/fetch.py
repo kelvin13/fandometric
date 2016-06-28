@@ -7,6 +7,7 @@ from .keys import client
 def yield_users(func, field, * args):
     count = 0
     offset = 0
+    switch = 1
     while True:
         try:
             blogs = func( * args, limit=20, offset=count)

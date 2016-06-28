@@ -46,7 +46,7 @@ Fandometric needs your tumblr keys in order to access your followers and followi
     print('Open this URL into your browser and authorize the application.\n')
     print(bold, 'http://www.tumblr.com/oauth/authorize?', content, endc, sep='')
     print("""
-After authorizing this application, you’ll be redirected to your localhost domain. (Your browser will most likely not load the page.) Copy the 'oauth_verifier' value from the url in your browser’s navigation bar and paste it below. Do not include the '#_=_' at the end of the url. The 'oauth_verifier' value should look similar to the highligted portion of the example below:
+After authorizing this application, you’ll be redirected to your localhost domain. (Your browser will most likely not load the page.) Copy the 'oauth_verifier' value from the url in your browser’s navigation bar and paste it below. Do not include the '#_=_' at the end of the url. The 'oauth_verifier' value should look similar to the highlighted portion of the example below:
 
 """, 'http://localhost/?oauth_token=0D8GYiSxDN2k0RBNqsNuEvniRt4Sgc51MSUKuCd6JWHAr8zTIk&oauth_verifier=', invert, 'jBM7p3fSDxbBgnH8YOL8t2TiggCjRrKiHrj2hqmFnYUkaiHlf7', endc, '#_=_', '\n', sep='')
     
