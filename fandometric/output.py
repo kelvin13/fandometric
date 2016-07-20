@@ -1,13 +1,15 @@
 from itertools import chain
 
-graybg = '\033[48;5;235m'
+graybg  = '\033[48;5;235m'
 blackbg = '\033[48;5;0m'
-white = '\033[38;5;15m'
+white   = '\033[38;5;15m'
 
-fail = '\033[38;5;197m'
-bold = '\033[1m'
-endc = '\033[0m'
-succ = '\033[38;5;86m'
+fail    = '\033[38;5;197m'
+bold    = '\033[1m'
+warning = '\033[38;5;220m' + bold
+endc    = '\033[0m'
+succ    = '\033[38;5;86m'
+invert  = '\033[7m'
 
 def mono_align(width, align, color, text):
     if align:

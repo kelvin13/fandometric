@@ -2,7 +2,7 @@
 
 A command line utility for tracking your tumblr following.
 
-Run with the python 3.5 console:
+Run with the [python 3.5](https://www.python.org/downloads/release/python-352/) console:
 
 ```
 >>> cd fandometric
@@ -21,19 +21,19 @@ Otherwise you can download a copy of Fandometric by going to the Download ZIP bu
 
 Extract the ZIP file to anywhere on your computer, as long as you know how to `cd` into the directory using a terminal.
 
+Fandometric depends on the following non-standard modules: `httplib2`, `flask`. If they are not installed, Fandometric will give you the option to have it install them automatically for you. Modules will be installed in the user space (with `pip --user`).
+
 ## First time use
 
 Fandometric works by taking snapshots of your tumblr following and comparing the changes between them. To do this, Fandometric needs access to your tumblr account. Fandometric can get the required keys for you as long as you give it permission.
 
 You will be prompted for a fandometric passkey. Official fandometric passkeys are currently only available to certain members of the Taylor Swift fandom. *If you do not have one*, you can generate your own unofficial fandometric passkey by [registering](https://www.tumblr.com/oauth/apps) your copy of fandometric separately with tumblr. Doing so will give you your own consumer key and consumer secret which you can plug directly into the `oauth.Consumer()` constructor in `authorize.py` (you will have to modify the source code).
 
-You will then be sent to a tumblr authorization page, and then a localhost page which will probably display in your browser as a page load error.
+You will then be sent to a tumblr authorization page, where you must authorize Fandometric to read data off of your account.
 
 ![Screenshot](screenshots/tutorial_2.png "Authorizing Fandometric")
 
-![Screenshot](screenshots/tutorial_3.png "Retrieving the OAuth verifier")
-
-Paste the `oauth_verifier` (highlighted portion of the url) into the Fandometric prompt. If successful, Fandometric is now linked to your tumblr account and ready to use.
+If successful, Fandometric is now linked to your tumblr account and ready to use.
 
 Fandometric will have saved the OAuth keys in a file called `tumblr_keys.txt` so you won’t have to go through this process each time you use it. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
 

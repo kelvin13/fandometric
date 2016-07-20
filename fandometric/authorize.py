@@ -2,8 +2,9 @@ from .pytumblr import P_oauth2 as oauth
 import hashlib
 from urllib import parse
 from .output import fail, bold, endc, succ
+from .receiver import build_receiver
 
-invert = '\033[7m'
+import webbrowser
 
 def generate_key(password):
     return hashlib.sha224(password.encode()).hexdigest()
@@ -41,37 +42,11 @@ Fandometric needs your tumblr keys in order to access your followers and followi
             print('passkey invalid, try again...')
     
     token = oauth.Token(request_token['oauth_token'], request_token['oauth_token_secret'])
-    
-    access_token = None
-    print('Open this URL into your browser and authorize the application.\n')
-    print(bold, 'http://www.tumblr.com/oauth/authorize?', content, endc, sep='')
-    print("""
-After authorizing this application, you’ll be redirected to your localhost domain. (Your browser will most likely not load the page.) Copy the 'oauth_verifier' value from the url in your browser’s navigation bar and paste it below. Do not include the '#_=_' at the end of the url. The 'oauth_verifier' value should look similar to the highlighted portion of the example below:
 
-""", 'http://localhost/?oauth_token=0D8GYiSxDN2k0RBNqsNuEvniRt4Sgc51MSUKuCd6JWHAr8zTIk&oauth_verifier=', invert, 'jBM7p3fSDxbBgnH8YOL8t2TiggCjRrKiHrj2hqmFnYUkaiHlf7', endc, '#_=_', '\n', sep='')
+    webbrowser.open(url='http://www.tumblr.com/oauth/authorize?' + content)
     
-    while access_token is None:
-        verifier = input(succ + "oauth_verifier > " + endc)
-        token.set_verifier(verifier)
-        token_client = oauth.Client(consumer, token)
-        _, token_content = token_client.request('http://www.tumblr.com/oauth/access_token', 'POST')
-        token_content = token_content.decode()
-        if token_content != 'Missing or invalid oauth_verifier.':
-            access_token = dict(parse.parse_qsl(token_content))
-            print()
-        else:
-            print('oauth_verifier invalid, try again...')
-    
+    localhost = build_receiver(consumer, token, ck, csd)
+    localhost.run(port=1989)
     
 
-    print('Your access token        : %s' % access_token['oauth_token'])
-    print('Your access token secret : %s' % access_token['oauth_token_secret'])
 
-    _keys = ck, csd, access_token['oauth_token'], access_token['oauth_token_secret']
-
-    with open('tumblr_keys.txt', 'w') as K:
-        K.write('\n'.join(_keys))
-
-    print()
-    print(succ, bold, 'Authentication successful', endc, sep='')
-    print()

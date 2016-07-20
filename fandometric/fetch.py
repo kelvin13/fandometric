@@ -4,36 +4,30 @@ from ssl import CertificateError
 
 from .keys import client
 
+def pause(seconds, message):
+    units = 'second', 'seconds'
+    for s in range(seconds, 0, -1):
+        yield message.format(s, unit=units[seconds != 1])
+        time.sleep(1)
+        
 def yield_users(func, field, * args):
     count = 0
-    offset = 0
-    switch = 1
+    
     while True:
         try:
             blogs = func( * args, limit=20, offset=count)
         except ServerNotFoundError:
-            print('Server not found, trying again in 3 seconds')
-            time.sleep(3)
+            yield from pause(4, 'Server not found (retry in {0} {unit})')
             continue
 
         if field in blogs and blogs[field]:
-            switch = 1
-            for blog in blogs[field]:
-                count += 1
-                print(str(count) + '.\t' + str(blog['name']))
-                if blog['name'] == 'taylorswift':
-                    print ("^^^TAYLORRRR!!!!")
-                    time.sleep(3)
-                yield blog
-
-            offset += 20
+            yield from blogs[field]
+            count += len(blogs[field])
 
         elif 'meta' in blogs and 'status' in blogs['meta']:
-            if switch:
-                print ("waiting on limits")
-                switch = 0
+            yield from pause(10, 'Rate limit hit (retry in {0} {unit})')
+        
         else:
-            print ('end')
             break
 
 def exists(url):
