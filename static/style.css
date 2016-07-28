@@ -1,56 +1,3 @@
-@font-face {
-    font-family: FiraLight;
-    src: url(FiraSans-Light.ttf);
-}
-
-@font-face {
-    font-family: FiraLight;
-    font-weight: 700;
-    src: url(FiraSans-Regular.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    src: url(FiraSans-Book.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    font-style: italic;
-    src: url(FiraSans-BookItalic.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    font-weight: 500;
-    src: url(FiraSans-Regular.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    font-weight: 500;
-    font-style: italic;
-    src: url(FiraSans-Italic.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    font-weight: 700;
-    src: url(FiraSans-SemiBold.ttf);
-}
-
-@font-face {
-    font-family: Fira;
-    font-weight: 700;
-    font-style: italic;
-    src: url(FiraSans-SemiBoldItalic.ttf);
-}
-
-@font-face {
-    font-family: Share Tech Mono;
-    src: url(ShareTechMono.woff2) format('woff2');
-}
-
 h1 {
   font-size: 120%;
   text-transform: uppercase;
@@ -65,7 +12,7 @@ body {
     padding-left: 2em;
     margin-right: auto;
     margin-left: auto;
-    font-family: Fira;
+    font-family: 'Fira Sans';
     font-size: 15px;
 }
 
@@ -134,14 +81,14 @@ section {
 }
 
 .code {
-    font-family: Share Tech Mono;
+    font-family: 'Share Tech Mono';
     font-variant-ligatures: none;
     color: #333;
     font-size: 16px;
 }
 
 .prompt {
-    font-family: Share Tech Mono;
+    font-family: 'Share Tech Mono';
     display: block;
     position: absolute;
     width: 5.5em;

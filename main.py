@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.5
-import sys, traceback
+import sys, traceback, webbrowser
 from datetime import datetime
 
 import fandometric as fm
@@ -7,9 +7,9 @@ import fandometric as fm
 from flask import Flask, send_from_directory, render_template
 from flask_socketio import SocketIO, emit
 
-import ui
+ui              = fm.ui
+
 new_bubble      = ui.new_bubble
-Streamer        = ui.Streamer
 error_bubble    = ui.error_bubble
 exception_bubble= ui.exception_bubble
 FandomError     = ui.FandomError
@@ -17,7 +17,7 @@ FandomError     = ui.FandomError
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app, async_mode=None)
-streamer = Streamer()
+streamer = ui.Streamer()
 stream   = streamer.stream
 ui.sleep = socketio.sleep
 
@@ -196,4 +196,6 @@ def kill():
     streamer.kill = True
 
 if __name__ == '__main__':
+    webbrowser.open(url='http://localhost:1989')
     socketio.run(app, host='0.0.0.0', port=1989)
+    

@@ -2,10 +2,8 @@ from time import time
 from itertools import chain
 
 from .fetch import yield_users, attempt_api_call
-from .archivist import User_group
-from . import keys
-
-import ui
+from .arc import User_group
+from . import keys, ui
 
 def _get_users(url, out, celeb=None, ** kwargs):
     out(new='blog fetch')

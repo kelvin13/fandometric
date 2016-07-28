@@ -1,9 +1,7 @@
 from httplib2 import ServerNotFoundError
 from ssl import CertificateError
 
-from . import keys
-
-import ui
+from . import keys, ui
 
 def pause(seconds, message):
     units = 'second', 'seconds'

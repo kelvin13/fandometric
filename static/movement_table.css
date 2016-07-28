@@ -4,7 +4,7 @@
 
 #details .movement-header , #details .stats-header, #details .following-header {
   display: block;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
   padding: 0.5em;
   padding-left: 1em;
@@ -28,7 +28,7 @@
 }
 
 .blogs-head {
-  font-weight: 700;
+  font-weight: 600;
   padding-bottom: 0.2em;
   margin-bottom: 0.5em;
   border-bottom: #666 2px solid;
@@ -105,7 +105,7 @@
 
 .blog-mutual:after {
   content: 'mutual';
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .blog-nonmutual:after {
@@ -127,7 +127,7 @@
 }
 
 thead {
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
   

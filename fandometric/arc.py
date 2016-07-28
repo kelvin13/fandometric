@@ -4,7 +4,7 @@ import os
 
 from _version import __version__
 
-from ui import FandomError
+from .ui import FandomError
 
 def max_file_index(directory):
     try:

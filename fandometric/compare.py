@@ -1,7 +1,7 @@
-from .archivist import get_record, max_file_index
+from .arc import get_record, max_file_index
 from .fetch import exists
 
-import ui
+from . import ui
 
 def check(A, B):    
     mutuals = B.gset

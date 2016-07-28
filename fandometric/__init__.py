@@ -2,13 +2,9 @@ from . import nest
 
 from .compare import compare_c
 from .update import update_c
-from .archivist import get_record, max_file_index
+from .arc import get_record, max_file_index
 
-import ui
-
-def changes(url, * args, ** kwargs ):
-    update(url, ** kwargs )
-    compare( * args, ** kwargs )
+from . import ui
 
 def _record_method(message, methodname):
     def f(a=0, directory='records', out=print):
