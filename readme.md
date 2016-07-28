@@ -1,15 +1,6 @@
 # Fandometric
 
-A command line utility for tracking your tumblr following.
-
-Run with the [python 3.5](https://www.python.org/downloads/release/python-352/) console:
-
-```
->>> cd fandometric
->>> python3.5
->>> import fandometric
->>> fandometric.changes(url, 0, -1)
-```
+A browser-based local utility for tracking your tumblr following. Written in [python 3.5](https://www.python.org/downloads/release/python-352/).
 
 ## Downloading Fandometric
 
@@ -19,9 +10,9 @@ Otherwise you can download a copy of Fandometric by going to the Download ZIP bu
 
 ![Screenshot](screenshots/tutorial_1.png "Downloading Fandometric")
 
-Extract the ZIP file to anywhere on your computer, as long as you know how to `cd` into the directory using a terminal.
+Extract the ZIP file to anywhere on your computer. Run `main.py` to start the Fandometric server.
 
-Fandometric depends on the following non-standard modules: `httplib2`, `flask`. If they are not installed, Fandometric will give you the option to have it install them automatically for you. Modules will be installed in the user space (with `pip --user`).
+Fandometric depends on the following non-standard modules: `httplib2`, `flask`, `flask_socketio`, `eventlet`. If they are not installed, Fandometric will give you the option to have it install them automatically for you. Modules will be installed in the user space (with `pip3 --user`).
 
 ## First time use
 
@@ -35,49 +26,33 @@ You will then be sent to a tumblr authorization page, where you must authorize F
 
 If successful, Fandometric is now linked to your tumblr account and ready to use.
 
-Fandometric will have saved the OAuth keys in a file called `tumblr_keys.txt` so you won’t have to go through this process each time you use it. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.** (And for Meredith’s sake, *do not post your OAuth keys on Github for the whole internet to see*.)
+Fandometric will have saved the OAuth keys in a file called `tumblr_keys.txt` so you won’t have to go through this process each time you use it. **Never share your OAuth keys; they are more or less equivalent to your tumblr password.**
 
 ## Usage
-Fandometric is a python console application. It can also be loaded as a library. In the top `fandometric` folder, run the following terminal commands to start python and load Fandometric
-```
->>> cd fandometric
->>> python3.5
->>> import fandometric
-```
-The `fandometric.changes` function is a convenience function that downloads the latest follower/following list for your account from tumblr and compares it with itself. Replace `blogname` with the url of your tumblr blog, in quotes (a tumblr url does not include “http://” or “.tumblr.com”).
-```
->>> fandometric.changes(<blogname>)
-```
-To compare with the last saved snapshot (comparing a follower list with itself isn’t terribly useful), include the two comparison index parameters `0, -1`.
-```
->>> fandometric.changes(<blogname>, 0, -1)
-```
+Fandometric emulates a bash terminal in the browser. All fandometric commands are prefixed with the command `fm`.
 
-![Screenshot](screenshots/screenshot_3.png "Fandometric usage")
 
-Comparisons will fail when you run Fandometric for the first time and ask it to perform a comparison with a previous snapshot, because it will have nothing to compare your follower/following list to. Snapshots are saved in a directory called `records` and may be freely deleted to clean out your records. Fandometric refers to these files by their numeric indexes.
+    fm update * [url1 --celeb=url2] --cache -c
 
-## Advanced usage
-`fandometric.changes` combines two operations—list downloading, and list comparison—that Fandometric provides separately through the functions `fandometric.update` and `fandometric.compare`.
+Downloads the current follower/following list for your account from tumblr and saves the data as `n.txt`, where `n` is one greater than the highest numbered file in `/records`. Replace `url1` with the url of your tumblr blog *without* quotes. (A tumblr url does not include “http://” or “.tumblr.com”). Optional parameter `--celeb` can be added immediately after each url to specify a celebrity follow to detect while Fandometric copies your followers list. You can specify more than one blog–celebrity pair. If `--cache` or `-c` is added anywhere in the arguments, Fandometric will remember the command and you can use it with the `fm go` shortcut.
 
-`fandometric.update(url[, directory='records'])`
+Example usage:
 
-Fetches the follower and following lists from tumblr and saves the data as `n.txt`, where `n` is one greater than the highest numbered file in `directory`.
+`fm update kaylornation --celeb=taylorswift taytaysbeard --celeb=karliekloss -c`
 
-* **url** : the tumblr url of your primary blog. *(required)*
-* **directory** : the directory Fandometric will save the snapshot in. Must be free of all non-snapshot files.
+Downloads the followers on blog `kaylornation.tumblr.com` and `taytaysbeard.tumblr.com` (if you have ownership of those blogs) and keeps a lookout for whether `taylorswift` and `karliekloss` follow each blog, respectively. The command will be saved in `terminal.txt` and can be reused with `fm go`.
 
-`fandometric.compare(a=0, b=a, directory='records')`
+    fm compare a b
 
 Compares the `a`th last and `b`th last snapshots in `directory`. The parameters `a` and `b` are counted backwards from the highest numbered file in `directory`. For example, if `1989.txt` is the highest numbered file in `directory`, `0` will refer to `1989.txt` and `-1` will refer to `1988.txt`. `a` and `b` can be in any order; Fandometric will compare the higher number to the lower. If any of the referenced files does not exist, comparison will fail.
 
 * **a** : the reverse index of the first snapshot to compare. Sign is irrelevant; `-1` and `1` are equivalent. Defaults to `0`.
 * **b** : the reverse index of the second snapshot to compare. Sign is irrelevant; `-1` and `1` are equivalent. Defaults to the value of `a` (self comparison).
-* **directory** : the directory Fandometric will search for `a` and `b` in. Must be free of all non-snapshot files.
 
-![Screenshot](screenshots/screenshot_4.png "Comparison output")
+Comparisons will fail when you run Fandometric for the first time and ask it to perform a comparison with a previous snapshot, because it will have nothing to compare your follower/following list to. Snapshots are saved in a directory called `records` and may be freely deleted to clean out your records. Fandometric refers to these files by their numeric indexes.
 
-### Comparison output
+Comparison will output the following data in the browser:
+
 | lost followers | |
 | --- | --- |
 | `exists` | the blog currently exists on tumblr |
@@ -92,14 +67,16 @@ Compares the `a`th last and `b`th last snapshots in `directory`. The parameters 
 | `mutual` | You followed this blog at the time of the second snapshot |
 | `—` | You did not follow this blog at the time of the second snapshot |
 
+    fm stats a
+
+Calculates the following stats for reverse-indexed snapshot `a`:
+
 | stats ||
 | --- | --- |
 | `ratio=u/v (u:v)` | The ratio of followers to following at the time of the second snapshot |
 | `p% inactive following (n blogs)` | The proportion and number of inactive blogs that you follow (inactivity defined as greater than one week) |
 | `p% inactive followers (n blogs)` | The proportion and number of inactive blogs that follow you (inactivity defined as greater than one week)
 
-`fandometric.following()`
+    fm following
 
-Displays a list of the blogs you are following, sorted by the time they were last active. 
-
-![Screenshot](screenshots/screenshot_5.png "Activity list")
+Displays a list of the blogs you are following from your primary, sorted by the time they were last active.

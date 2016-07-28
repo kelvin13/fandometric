@@ -2,7 +2,7 @@
 import sys, traceback, webbrowser
 from datetime import datetime
 
-import fandometric as fm
+import src as fm
 
 from flask import Flask, send_from_directory, render_template
 from flask_socketio import SocketIO, emit
