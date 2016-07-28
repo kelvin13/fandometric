@@ -107,7 +107,13 @@ def _go(commands):
     _ARG_compare([0, 1])
     _ARG_stats(())
 
-_FM_COMMANDS = {'update'    : _ARG_update,
+_HELP_MESSAGES = 'Available commands:', 'fm update : download followers list', 'fm compare : check gained and lost followers', 'fm stats : calculate tumblr user stats', 'fm following : list blogs you are currently following', 'fm go : run fm update, fm compare, and fm stats on the default url list'
+def _help(commands):
+    for message in _HELP_MESSAGES:
+        new_bubble('output', message=message)
+
+_FM_COMMANDS = {'help'      : _help,
+                'update'    : _ARG_update,
                 'compare'   : _ARG_compare,
                 'stats'     : _ARG_stats,
                 'following' : _ARG_following,
@@ -135,12 +141,14 @@ fm.authorize.build_key_receiver(app)
 _add_confirm('tumblr-keys', fm.authorize.setup, 'passkey', message='Fandometric needs your tumblr keys in order to access your followers and following lists. You will only need to do this once. You can revoke its access at any time by going to Tumblr Settings > Apps on tumblr.com.', fail='Passkey invalid, try again...')
 
 @socketio.on('connect', namespace='/py')
-def test_for_client():
+def on_connection():
     client = fm.keys.make_client()
     if client is None:
         emit('need', 'fm tumblr-keys', namespace='/py')
     else:
         fm.keys.client = client
+    
+    new_bubble('output', message='Fandometric 2.0 (July 28 2016). Type `help` for a list of available commands.')
 
 @socketio.on('fm confirm', namespace='/py')
 def recieve_confirmation(response):
@@ -185,6 +193,8 @@ def on_command(command):
                     emit('need', 'fm tumblr-keys', namespace='/py')
                 else:
                     _attempt_exec(parse_fm, commands)
+        elif program == 'help':
+            _help(())
         else:
             error_bubble("'{}' is not a recognized command".format(program))
     

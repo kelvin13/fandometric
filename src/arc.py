@@ -106,7 +106,7 @@ class User_group(object):
             users = self._UGS[url]
             inactive_n = inactive(self.timestamp, users, threshold)
             try:
-                ratio = round(len(users)/denom, 5)
+                ratio = round(len(users)/denom, 3)
             except ZeroDivisionError:
                 ratio = 'undefined'
             yield (url,
@@ -125,7 +125,7 @@ class User_group(object):
 def inactive(T, blogs, threshold):
     return sum(1 for blog in blogs if T - blog[1] > threshold)
 
-def percent(a, b, roundto=5):
+def percent(a, b, roundto=3):
     try:
         p = str(round(a/b * 100, roundto)) + '%'
     except ZeroDivisionError:
