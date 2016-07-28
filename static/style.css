@@ -47,8 +47,8 @@
 }
 
 @font-face {
-    font-family: ShareTechMono;
-    src: url(ShareTechMono-Regular.ttf);
+    font-family: Share Tech Mono;
+    src: url(ShareTechMono.woff2) format('woff2');
 }
 
 h1 {
@@ -134,14 +134,14 @@ section {
 }
 
 .code {
-    font-family: ShareTechMono;
+    font-family: Share Tech Mono;
     font-variant-ligatures: none;
     color: #333;
     font-size: 16px;
 }
 
 .prompt {
-    font-family: ShareTechMono;
+    font-family: Share Tech Mono;
     display: block;
     position: absolute;
     width: 5.5em;
