@@ -34,7 +34,7 @@ Fandometric emulates a bash terminal in the browser. All fandometric commands ar
 
     fm update * [url1 --celeb=url2] --cache -c
 
-Downloads the current follower/following list for your account from tumblr and saves the data as `n.txt`, where `n` is one greater than the highest numbered file in `/records`. Replace `url1` with the url of your tumblr blog *without* quotes. (A tumblr url does not include “http://” or “.tumblr.com”). Optional parameter `--celeb` can be added immediately after each url to specify a celebrity follow to detect while Fandometric copies your followers list. You can specify more than one blog–celebrity pair. If `--cache` or `-c` is added anywhere in the arguments, Fandometric will remember the command and you can use it with the `fm go` shortcut.
+Downloads the current follower/following list for your account from tumblr and saves the data as `n.txt`, where `n` is one greater than the highest numbered file in `/records`. Replace `url1` with the url of your tumblr blog *without* quotes. (A tumblr url does not include “http://” or “.tumblr.com”). **If your tumblr url begins with two hyphens `--`, prefix it with an `@` sign like this: `@--i-didnt-get-the-url-i-wanted--`.** Optional parameter `--celeb` can be added immediately after each url to specify a celebrity follow to detect while Fandometric copies your followers list. You can specify more than one blog–celebrity pair. If `--cache` or `-c` is added anywhere in the arguments, Fandometric will remember the command and you can use it with the `fm go` shortcut.
 
 Example usage:
 
