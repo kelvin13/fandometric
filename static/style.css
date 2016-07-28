@@ -1,54 +1,54 @@
 @font-face {
     font-family: FiraLight;
-    src: url(FiraSans-Light.otf);
+    src: url(FiraSans-Light.ttf);
 }
 
 @font-face {
     font-family: FiraLight;
     font-weight: 700;
-    src: url(FiraSans-Regular.otf);
+    src: url(FiraSans-Regular.ttf);
 }
 
 @font-face {
     font-family: Fira;
-    src: url(FiraSans-Book.otf);
+    src: url(FiraSans-Book.ttf);
 }
 
 @font-face {
     font-family: Fira;
     font-style: italic;
-    src: url(FiraSans-BookItalic.otf);
+    src: url(FiraSans-BookItalic.ttf);
 }
 
 @font-face {
     font-family: Fira;
     font-weight: 500;
-    src: url(FiraSans-Regular.otf);
+    src: url(FiraSans-Regular.ttf);
 }
 
 @font-face {
     font-family: Fira;
     font-weight: 500;
     font-style: italic;
-    src: url(FiraSans-Italic.otf);
+    src: url(FiraSans-Italic.ttf);
 }
 
 @font-face {
     font-family: Fira;
     font-weight: 700;
-    src: url(FiraSans-SemiBold.otf);
+    src: url(FiraSans-SemiBold.ttf);
 }
 
 @font-face {
     font-family: Fira;
     font-weight: 700;
     font-style: italic;
-    src: url(FiraSans-SemiBoldItalic.otf);
+    src: url(FiraSans-SemiBoldItalic.ttf);
 }
 
 @font-face {
     font-family: ShareTechMono;
-    src: url(Share-TechMono.otf);
+    src: url(ShareTechMono-Regular.ttf);
 }
 
 h1 {
