@@ -62,7 +62,7 @@ def update(urls, directory='records', out=print, ** kwargs ):
     invalid  = set(u[0] for u in urls) - owned
     if invalid:
         if len(invalid) == 1:
-            msg = 'blog <{0}> is not owned by primary <{1}>'.format(next(invalid), primary)
+            msg = 'blog <{0}> is not owned by primary <{1}>'.format(next(iter(invalid)), primary)
         else:
             msg = 'blogs {0} are not owned by primary <{1}>'.format(', '.join('<' + url + '>' for url in sorted(invalid)), primary)
         raise ui.FandomError(msg)

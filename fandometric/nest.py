@@ -10,7 +10,7 @@ def test( * modules ):
         except ImportError:
             yield module
 
-missing = tuple(test('httplib2', 'flask'))
+missing = tuple(test('httplib2', 'flask', 'flask_socketio', 'eventlet'))
 if missing:
     print('Warning, you are missing the following required packages:')
     for module in missing:

@@ -2,6 +2,8 @@
 import sys, traceback
 from datetime import datetime
 
+import fandometric as fm
+
 from flask import Flask, send_from_directory, render_template
 from flask_socketio import SocketIO, emit
 
@@ -11,8 +13,6 @@ Streamer        = ui.Streamer
 error_bubble    = ui.error_bubble
 exception_bubble= ui.exception_bubble
 FandomError     = ui.FandomError
-
-import fandometric as fm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
