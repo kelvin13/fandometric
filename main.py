@@ -107,7 +107,7 @@ def _go(commands):
     _ARG_compare([0, 1])
     _ARG_stats(())
 
-_HELP_MESSAGES = 'Available commands:', 'fm update : download followers list', 'fm compare : check gained and lost followers', 'fm stats : calculate tumblr user stats', 'fm following : list blogs you are currently following', 'fm go : run fm update, fm compare, and fm stats on the default url list'
+_HELP_MESSAGES = 'Available commands:', 'fm update : download followers list', 'fm compare : check gained and lost followers', 'fm stats : calculate tumblr user stats', 'fm following : list blogs you are currently following', 'fm go : run fm update, fm compare, and fm stats on the default url list', 'fm tumblr-keys : regenerate the tumblr OAuth keys used to access your account'
 def _help(commands):
     for message in _HELP_MESSAGES:
         new_bubble('output', message=message)

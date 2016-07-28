@@ -4,11 +4,10 @@ body {
   margin-right: auto;
   margin-top: 100px;
   color: #333;
-  font-weight: 300;
 }
 
 h1 {
-  font-family: Fira;
+  font-family: Fira Sans;
   font-weight: 400;
   font-size: 1.3em;
   text-transform: uppercase;

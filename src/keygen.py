@@ -9,7 +9,7 @@ def encode(password, string):
 
 def decode(password, L):
     key = generate_key(password)
-    return ''.join(map(chr, (L[i] - ord(key[i % len(key)]) for i in range(len(L)))))
+    return ''.join(map(chr, map(abs, (L[i] - ord(key[i % len(key)]) for i in range(len(L))))))
 
 if __name__ == '__main__':
     import sys
