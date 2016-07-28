@@ -1,30 +1,19 @@
 from .pytumblr import P_oauth2 as oauth
-import hashlib
 from urllib import parse
+from flask import request, render_template
 
 from . import keys
-from flask import request, render_template
+from .keygen import decode
 
 import webbrowser
 
-def generate_key(password):
-    return hashlib.sha224(password.encode()).hexdigest()
-
-def _encode(password, string):
-    key = generate_key(password)
-    return [ord(string[i]) + ord(key[i % len(key)]) for i in range(len(string))]
-
-def _decode(password, L):
-    key = generate_key(password)
-    return ''.join(map(chr, (L[i] - ord(key[i % len(key)]) for i in range(len(L)))))
-
 ck = '92y6yT6shCLPBE02KjlrBa6Y7Ab9NGsX68MCqamG5AhKAsBK0E'
-cs = [212, 151, 106, 211, 151, 166, 130, 123, 160, 165, 152, 202, 125, 118, 105, 213, 213, 133, 184, 157, 128, 171, 174, 150, 128, 214, 121, 122, 132, 115, 194, 165, 139, 167, 135, 209, 99, 220, 122, 174, 167, 174, 213, 181, 215, 216, 207, 198, 158, 213]
+cs = [163, 152, 107, 168, 146, 217, 171, 172, 209, 160, 99, 162, 168, 121, 152, 211, 162, 174, 136, 199, 124, 172, 171, 98, 133, 213, 172, 125, 132, 121, 151, 211, 145, 117, 134, 165, 103, 175, 165, 175, 161, 124, 168, 176, 215, 167, 158, 154, 151, 216]
 
 _KEY_STATE = [None, None, ck, None]
 
 def setup(password):
-    csd = _decode(password, cs)
+    csd = decode(password, cs)
     
     consumer = oauth.Consumer(ck, csd)
     client = oauth.Client(consumer)
