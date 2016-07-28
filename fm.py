@@ -38,9 +38,11 @@ def _ARG_update(commands):
     else:
         raise FandomError('no blog name given')
 
-dateformat = '{0:%B} {0.day}, {0:%Y} at {0:%l}:{0.minute:02} {0:%p}'.format
+                                    # for windows
+dateformat = '{0:%B} {0.day}, {0:%Y} at {1}:{0.minute:02} {0:%p}'.format
 def int_to_date(t):
-    return dateformat(datetime.fromtimestamp(t))
+    T = datetime.fromtimestamp(t)
+    return dateformat(T, (T.hour - 1) % 12 + 1)
 
 state_key       = 'blog-deleted'    , 'blog-exists', 'blog-unknown', 'blog-new'
 mutuality_key   = 'blog-nonmutual'  , 'blog-mutual',
@@ -194,4 +196,4 @@ def kill():
     streamer.kill = True
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, host='0.0.0.0', port=1989)
+    socketio.run(app, host='0.0.0.0', port=1989)
