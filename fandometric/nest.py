@@ -1,4 +1,3 @@
-from .output import succ, fail, bold, endc
 import importlib
 
 # test to make sure modules are installed
@@ -13,21 +12,21 @@ def test( * modules ):
 
 missing = tuple(test('httplib2', 'flask'))
 if missing:
-    print(fail, 'Warning, you are missing the following required packages:', endc, sep='')
+    print('Warning, you are missing the following required packages:')
     for module in missing:
-        print(fail, bold, module, endc)
+        print(module)
     while True:
-        install = input(succ + 'Install packages? [y/n] > ' + endc).lower()
+        install = input('Install packages? [y/n] > ').lower()
         if install == 'y':
             import pip
             try:
                 for module in missing:
                     pip.main(['install', '--user', module])
             except:
-                print(fail, 'Unable to install packages using pip3. Please try manual installation.', endc, sep='')
+                print('Unable to install packages using pip3. Please try manual installation.')
                 quit()
             else:
-                print(succ, bold, 'Dependencies successfully installed', endc , sep='')
+                print('Dependencies successfully installed')
                 break
         elif install == 'n':
             quit()

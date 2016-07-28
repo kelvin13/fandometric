@@ -1,0 +1,163 @@
+.blog-name {
+  font-style: italic;
+}
+
+#details .movement-header , #details .stats-header, #details .following-header {
+  display: block;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.5em;
+  padding-left: 1em;
+  margin-left: 0;
+}
+
+#details .movement-header {
+  background-color: #333;
+}
+
+#details .movement-header.movement-header-error {
+  background-color: #ff3050;
+}
+
+#details .stats-header, #details .following-header {
+  background-color: #6070ff;
+}
+
+.time, .movement-header .blog-name, .following-header .blog-name {
+  font-weight: 700;
+}
+
+.blogs-head {
+  font-weight: 700;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  border-bottom: #666 2px solid;
+  text-transform: uppercase;
+  font-feature-settings: 'pnum';
+  letter-spacing: 2px;
+}
+
+.blogs-table {
+  margin-bottom: 0.5em;
+  counter-reset: rowNumber;
+}
+
+.blogs-table tr {
+    counter-increment: rowNumber;
+}
+
+.blogs-table tr td{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.blogs-table tr td:after {
+  display: inline-block;
+  text-align: center;
+}
+
+.blogs-table tr td:nth-child(1):after {
+  min-width: 6em;
+}
+
+.blogs-table tr td:nth-child(2):after {
+  min-width: 6em;
+}
+
+.blogs-table tr td:last-child {
+  margin-left: 1em;
+}
+
+.blogs-table tr td:first-child:before {
+  content: counter(rowNumber);
+  display: inline-block;
+  color: #888;
+  text-align: right;
+  min-width: 2em;
+}
+
+.blogs-lost .blogs-head:after {
+  content: ' lost followers';
+}
+
+.blogs-gained .blogs-head:after {
+  content: ' new followers';
+}
+
+.blog-deleted:after {
+  content: 'deleted';
+  color: #ff3050;
+}
+
+.blog-exists:after {
+  content: 'exists';
+}
+
+.blog-unknown:after {
+  content: 'unknown';
+}
+
+.blog-new:after {
+  content: 'new';
+  color: #30eab0;
+}
+
+.blog-mutual:after {
+  content: 'mutual';
+  font-weight: 700;
+}
+
+.blog-nonmutual:after {
+  content: '';
+}
+
+.blog-mutual:after {
+  color: #30eab0;
+}
+
+.blogs-lost .blog-mutual:after {
+  color: #ff3050;
+}
+
+/* Stats */
+.stats-table {
+  text-align: center;
+
+}
+
+thead {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+}
+
+thead:after {line-height:0.25em; content:"\200C"; display:block;}
+
+.stats-table tbody tr td:first-child {
+  text-align: left;
+  padding-left: 0;
+  font-weight: 500;
+}
+.stats-table tr td {
+  margin: 0;
+  padding: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  
+}
+
+.stats-table thead tr td {
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+}
+
+/* following */
+.blogs-following .blogs-table tr td:nth-child(1) {
+  min-width: 17em;
+}
+
+.blogs-following .blogs-table tr td:first-child:before {
+  margin-right: 1em;
+}

@@ -1,0 +1,252 @@
+@font-face {
+    font-family: FiraLight;
+    src: url(FiraSans-Light.otf);
+}
+
+@font-face {
+    font-family: FiraLight;
+    font-weight: 700;
+    src: url(FiraSans-Regular.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    src: url(FiraSans-Book.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    font-style: italic;
+    src: url(FiraSans-BookItalic.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    font-weight: 500;
+    src: url(FiraSans-Regular.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    font-weight: 500;
+    font-style: italic;
+    src: url(FiraSans-Italic.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    font-weight: 700;
+    src: url(FiraSans-SemiBold.otf);
+}
+
+@font-face {
+    font-family: Fira;
+    font-weight: 700;
+    font-style: italic;
+    src: url(FiraSans-SemiBoldItalic.otf);
+}
+
+@font-face {
+    font-family: ShareTechMono;
+    src: url(Share-TechMono.otf);
+}
+
+h1 {
+  font-size: 120%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #444;
+}
+
+body {
+    max-width: 1300px;
+    padding: 1em;
+    padding-left: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Fira;
+    font-size: 15px;
+}
+
+td {
+    border: none;
+    font-feature-settings: 'tnum';
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #ff2080;
+}
+
+a:hover {
+  color: #ff60a0;
+}
+
+section {
+    float: left;
+    margin-bottom: 100px;
+    overflow: auto;
+}
+
+#details, p {
+    font-feature-settings: 'onum';
+}
+
+#details {
+    width: 50%;
+    min-height: 100px;
+}
+
+#details > * {
+    margin-left: 1em;
+    margin-bottom: 1em;
+    overflow: auto;
+}
+
+#console {
+    width: 50%;
+}
+
+#console_input_space {
+    min-height: 200px;
+}
+
+.bubble {
+    clear: left;
+}
+
+.bubble:empty:before {
+    content: "\200b";
+}
+
+.bubble.error {
+    color: #ff3050;
+}
+
+.bubble.error:before {
+    content: 'Error: ';
+}
+
+.bubble.error.exception:before {
+    content: none;
+}
+
+.code {
+    font-family: ShareTechMono;
+    font-variant-ligatures: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.prompt {
+    font-family: ShareTechMono;
+    display: block;
+    position: absolute;
+    width: 5.5em;
+
+    margin-left: -6em;
+
+    text-align: right;
+}
+.prompt:after {
+    content: '>';
+}
+
+.prompt:hover {
+    color: #ff60a0;
+}
+
+.prompt.dead-prompt {
+    pointer-events: none;
+    color: #ccc;
+}
+
+.console-components {
+    clear: left;
+}
+
+#command {
+    display: block;
+    float: right;
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    
+    min-height: 200px;
+    margin-bottom: 40px;
+}
+
+/* Progress bars */
+
+.bubble.long-process {
+    overflow: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.progress-trough {
+    display: block;
+}
+
+.bubble .progress-trough {
+    width: 160px;
+    height: 10px;
+    float: left;
+    margin-right: 8px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.progress-bar {
+    display: block;
+    height: 100%;
+    width: 0;
+}
+
+/* progress status text */
+.working {
+    color: #30eab0;
+}
+
+.working .progress-bar, .working .celeb-on {
+    background-color: #30eab0;
+    color: #fff;
+}
+
+.working .progress-trough {
+    border: 2px solid #30eab0;
+}
+
+.warning {
+    color: #ffb000;
+}
+
+.warning .progress-bar, .warning .celeb-on {
+    background-color: #ffc000;
+    color: #fff;
+}
+
+.warning .progress-trough {
+    border: 2px solid #ffc000;
+}
+
+/* celebrity indicator */
+.celeb:after {
+    content: ']';
+}
+
+.celeb-off:before {
+    content: '\A[x\a0';
+    
+}
+
+.celeb-on:before {
+    content: '\A[+\a0';
+    
+}

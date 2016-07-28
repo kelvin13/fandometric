@@ -1,0 +1,36 @@
+body {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  color: #333;
+}
+
+h1 {
+  font-family: FiraLight;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #444;
+}
+
+table {
+  padding: 0;
+}
+
+td {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+td:first-child {
+  padding-right: 10px;
+}
+
+.navigation li {
+  display: inline-block;
+  list-style-position: outside;
+  list-style-type: none;
+  padding: 16px;
+}

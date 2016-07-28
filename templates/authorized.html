@@ -1,10 +1,11 @@
-page = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Authentication successful</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/authorized.css">
 </head>
 <body>
 
@@ -13,11 +14,11 @@ page = """<!DOCTYPE html>
   <table>
     <tr>
       <td>Your access token</td>
-      <td class="code">{oauth_token}</td>
+      <td class="code">{{ oauth_token }}</td>
     </tr>
     <tr>
       <td>Your access token secret</td>
-      <td class="code">{oauth_token_secret}</td>
+      <td class="code">{{ oauth_token_secret }}</td>
     </tr>
   </table>
 
@@ -28,5 +29,4 @@ page = """<!DOCTYPE html>
   </ul>
   
 </body>
-
-</html>"""
+</html>
