@@ -123,7 +123,7 @@
 /* Stats */
 .stats-table {
   text-align: center;
-
+  width: 100%;
 }
 
 thead {
@@ -143,8 +143,6 @@ thead:after {line-height:0.25em; content:"\200C"; display:block;}
 .stats-table tr td {
   margin: 0;
   padding: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
   
 }
 
